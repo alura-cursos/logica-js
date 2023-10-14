@@ -25,8 +25,10 @@ if (diaDaSemana == 'Sábado') {
 numero = prompt('Digite um positivo ou negativo');
 if (numero > 0) {
     alert('Número positivo!');
-} else {
+} else if (numero < 0) {
     alert('Número negativo!');
+} else {
+    //Número nulo = 0
 }
 ```
 
@@ -34,7 +36,7 @@ if (numero > 0) {
 
 ```js
 pontuacao = 105;
-if (pontuacao > 100) {
+if (pontuacao >= 100) {
     console.log('Parabéns, você venceu!');
 } else {
     console.log('Tente novamente para ganhar.');
