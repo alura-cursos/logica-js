@@ -9,7 +9,7 @@ Compreender esses conceitos não apenas facilita o aprendizado de novas linguage
 1) Mostre um alerta com a mensagem "Bem-vindo ao nosso site!".
 
 ```js
-alert('Bem-vindo ao nosso site!');
+alert('Bem-vindo ao nosso site');
 ```
 
 2) Declare uma variável chamada `nome` e atribua a ela o valor "Lua".
@@ -52,19 +52,19 @@ alert(mensagemDeErro);
 8) Use um prompt para perguntar o nome do usuário e armazená-lo na variável `nome`.
 
 ```js
-let nome = prompt('Digite o seu nome');
+let nome = prompt('Eduardo');
 ```
 
 9) Peça ao usuário para digitar sua idade usando um prompt e armazene-a na variável `idade`.
 
 ```js
-let idade = prompt('Digite a sua idade');
+let idade = prompt('44');
 ```
 
 10) Peça ao usuário para digitar sua idade usando um prompt e armazene-a na variável `idade`. Agora, a idade seja maior ou igual que 18, exiba um alerta com a mensagem "Pode tirar a habilitação!".
 
 ```js
-let idade = prompt('Digite a sua idade');
+let idade = prompt('44');
 if (idade >= 18) {
     alert('Pode tirar a habilitação!'); 
 }
