@@ -57,7 +57,7 @@ console.log(`A diferença entre ${valor1} e ${valor2} é igual a ${resultado}.`)
 
 ```js 
 let idade = prompt('Digite a sua idade:');
-if (idade > 17) {
+if (idade >= 18) {
     console.log('Você é maior de idade.');
 } else {
     console.log('Você é menor de idade.');
