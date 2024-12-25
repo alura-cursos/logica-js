@@ -9,6 +9,8 @@ Compreender esses conceitos não apenas facilita o aprendizado de novas linguage
 1) Pergunte ao usuário qual é o dia da semana. Se a resposta for "Sábado" ou "Domingo", mostre "Bom fim de semana!". Caso contrário, mostre "Boa semana!".
 
 ```js
+//Opção 1 - Nível de dificuldade fácil.
+
 diaDaSemana = prompt('Qual é o dia da semana?');
 if (diaDaSemana == 'Sábado') {
     alert('Bom fim de semana!');
@@ -17,16 +19,72 @@ if (diaDaSemana == 'Sábado') {
 } else {
     alert('Boa semana!');
 }
+
+//Infelizmente, caso o usuário não colabore, e digite algo aleatório como "batata" ou "12" etc... ainda assim o código retornará o alert('Boa semana!); mesmo que não seja má vontade do usuário, caso alguém digite "sábado" ou "domingo" no prompt usando iniciais com letra minúscula, ainda assim o retorno do alert será 'Boa semana!', o que é definitivamente um bug!
+
+//Opção 2 - Nível de dificulade intermediário. (soluciona problema de iniciais com letra minúscula).
+
+if (['Segunda', 'segunda', 'Segunda-feira', 'segunda-feira', 'Terça', 'terça', 'Terça-feira', 'terça-feira', 'Quarta', 'quarta', 'Quarta-feira', 'quarta-feira', 'Quinta', 'quinta', 'Quinta-feira', 'quinta-feira', 'Sexta', 'sexta', 'Sexta-feira', 'sexta-feira'].includes(prompt('Qual é o dia da semana?'))) {
+    alert('Boa semana!');
+} else {
+    alert('Bom fim de semana!');
+}
+
+//Opção 3 - Nível de dificuldade avançado. (soluciona o problema de iniciais com letra minúscula e o problema de digitação aleatória no prompt)
+
+let diaDaSemana = prompt('Qual é o dia da semana?'); // inserindo prompt "Dia da Semana"
+let fimDeSemana = ['Sábado', 'Domingo', 'sábado', 'domingo']; // definindo variável "Fim de Semana"
+let semana = ['Segunda', 'segunda', 'Segunda-feira', 'segunda-feira', 'Terça', 'terça', 'Terça-feira', 'terça-feira', 'Quarta', 'quarta', 'Quarta-feira', 'quarta-feira', 'Quinta', 'quinta', 'Quinta-feira', 'quinta-feira', 'Sexta', 'sexta', 'Sexta-feira', 'sexta-feira']; // definindo variável "Dias de Semana"
+
+if (fimDeSemana.includes(diaDaSemana)) {
+    alert('Bom fim de semana!');
+} else if (semana.includes(diaDaSemana)) {
+    alert('Boa semana!');
+} else {
+    alert('Tente inserir um dia de semana válido em sua próxima tentativa!');
+}
+
+//com esse array, verifica-se a digitação de 
 ```
 
 2) Verifique se um número digitado pelo usuário é positivo ou negativo. Mostre um alerta informando.
 
 ```js
+//Opção 1: Nível de dificuldade fácil.
 numero = prompt('Digite um positivo ou negativo');
 if (numero > 0) {
     alert('Número positivo!');
 } else {
     alert('Número negativo!');
+}
+
+//O presente código checa se o número inserido é maior que 0, retornando alert 'Número positivo' e se não for o caso, retorna alert 'Número negativo'. Porém existe um bug aqui. Se o usuário digitar o valor '0'? Pois é, o resultado do alert é 'Número negativo'. Mas eu e você sabemos que zero não é um número negativo, é um número neutro... logo aqui temos um bug. Também há um bug caso seja digitado letas ou simbolos etc.
+
+
+//Opção 2: Nível de dificuldade avançado. (eliminando o bug do '0' interpretado como 'Número negativo' bem como letras, símbolos etc.)
+
+let numero;
+
+while (true) {
+    let dadosInseridos = prompt('Por favor, insira um número:');
+    
+    // Tentar converter os dados inseridos para número
+    numero = Number(dadosInseridos);
+    
+    // Verificar se é um número válido
+    if (!isNaN(numero)) {
+        // Determinar se o número é positivo, negativo ou neutro
+        if (numero > 0) {
+            alert('Número positivo!');
+        } else if (numero === 0) {
+            alert('Número neutro!');
+        } else {
+            alert('Número negativo!');
+        }
+        break; // Saia do loop após exibir a mensagem
+    } else {
+        alert('Entrada inválida. Por favor, insira um número.');
+    }
 }
 ```
 
